@@ -1,0 +1,14 @@
+{
+  "version": "1.0.2",
+  "title": "Kcomunitywhats v1.0.2 - Corrector en Español e Indicador de Mensajes",
+  "releaseDate": "2026-09-19",
+  "mandatory": false,
+  "changelog": [
+    "Nuevo indicador visual de mensajes entrantes: las pestañas y títulos cambian a verde brillante con resplandor pulsante y contador de mensajes no leídos.",
+    "Corrector ortográfico en español corregido: integración del diccionario oficial Hunspell es-ES offline para sugerir tildes y palabras correctas.",
+    "Limpieza automática del aviso de mensaje en cuanto seleccionas la pestaña para atender la línea.",
+    "Soporte completo de notificaciones de mensajes tanto en Modo Pestañas como en Modo Cuadrícula (Smart Grid).",
+    "Optimización de rendimiento y reducción de uso de memoria RAM."
+  ],
+  "downloadUrl": "https://github.com/kenjicorimanya/kcomunityWhats/releases/download/v1.0.2/Kcomunitywhats_Setup.exe"
+}

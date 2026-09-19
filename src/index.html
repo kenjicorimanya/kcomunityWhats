@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kcomunitywhats - Gestor Multi-WhatsApp</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/modals.css">
+</head>
+<body class="theme-dark font-normal">
+
+  <!-- ========================================== -->
+  <!-- BARRA SUPERIOR (HEADER)                     -->
+  <!-- ========================================== -->
+  <header class="app-header">
+    <div class="header-left">
+      <button id="btn-hamburger" class="btn-icon" title="Menú Principal">
+        ☰
+      </button>
+      <div class="app-brand">
+        <span class="app-title">Kcomunitywhats</span>
+        <span id="app-badge" class="app-brand-badge badge-trial">Prueba</span>
+      </div>
+    </div>
+
+    <!-- Conmutador de Secciones Principales -->
+    <div class="section-nav-group">
+      <button id="nav-btn-multi" class="btn-section-tab active" title="Gestionar y chatear en WhatsApp">
+        📱 Multi-WhatsApp
+      </button>
+      <button id="nav-btn-bulk" class="btn-section-tab" title="Envío masivo por línea de WhatsApp">
+        🚀 Envío Masivo
+      </button>
+    </div>
+
+    <div class="header-right">
+      <div id="multi-view-controls" class="view-mode-selector">
+        <button id="btn-view-tabs" class="btn-view-mode active" title="Vista en Pestañas">
+          📑 Pestañas
+        </button>
+        <button id="btn-view-grid" class="btn-view-mode" title="Vista en Mosaico / Cuadrícula">
+          ⊞ Cuadrícula
+        </button>
+      </div>
+
+      <button id="btn-add-screen" class="btn-add-screen">
+        <span>+</span> Nueva Línea
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- BANNER DE PERÍODO DE PRUEBA (7 DÍAS)        -->
+  <!-- ========================================== -->
+  <div id="trial-banner" class="trial-banner">
+    <div class="trial-banner-content">
+      <span>🕒</span>
+      <span><strong>Período de prueba activo:</strong> Te quedan <strong id="trial-days-count">7</strong> días de uso completo.</span>
+    </div>
+    <button id="btn-banner-activate" class="trial-banner-btn">
+      Activar Licencia
+    </button>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- CONTENEDOR PRINCIPAL (VIEWPORT)            -->
+  <!-- ========================================== -->
+  <main class="main-viewport">
+
+    <!-- SECCIÓN 1: MULTI-WHATSAPP (CHAT Y PANTALLAS) -->
+    <section id="view-multi-whatsapp" class="view-section active">
+      <nav id="screens-nav" class="screens-nav"></nav>
+      <div id="screens-container" class="screens-container mode-tabs"></div>
+    </section>
+
+    <!-- SECCIÓN 2: ENVÍO MASIVO (PANTALLA COMPLETA POR LÍNEA) -->
+    <section id="view-bulk-sender" class="view-section">
+      <!-- Fila superior de tarjetas de líneas -->
+      <div class="bulk-lines-container">
+        <div id="bulk-lines-row" class="bulk-lines-row">
+          <!-- Tarjetas de cada línea generadas dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Panel de trabajo de la línea seleccionada -->
+      <div class="bulk-workspace-scroll">
+        <div id="bulk-workspace-content" class="bulk-workspace-content">
+          <!-- Formulario, números, imagen y monitor de la línea activa -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MENÚ DE HAMBURGUESA (DRAWER LATERAL)       -->
+  <!-- ========================================== -->
+  <div id="drawer-backdrop" class="drawer-backdrop">
+    <aside id="drawer-panel" class="drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-title">
+          <span>☰</span> Menú
+        </div>
+        <button id="btn-close-drawer" class="btn-icon" title="Cerrar Menú">✕</button>
+      </div>
+
+      <ul class="drawer-menu-list">
+        <li class="drawer-item" id="menu-item-multi">
+          <span class="drawer-item-icon">📱</span>
+          <span>Multi-WhatsApp</span>
+        </li>
+        <li class="drawer-item" id="menu-item-bulk">
+          <span class="drawer-item-icon">🚀</span>
+          <span>Envío Masivo</span>
+        </li>
+        <li class="drawer-item" id="menu-item-about">
+          <span class="drawer-item-icon">👥</span>
+          <span>Quiénes somos</span>
+        </li>
+        <li class="drawer-item" id="menu-item-license">
+          <span class="drawer-item-icon">🔑</span>
+          <span>Información y Licencia</span>
+        </li>
+        <li class="drawer-item" id="menu-item-settings">
+          <span class="drawer-item-icon">⚙️</span>
+          <span>Ajustes</span>
+        </li>
+        <li class="drawer-item" id="menu-item-version">
+          <span class="drawer-item-icon">ℹ️</span>
+          <span>Versión</span>
+        </li>
+      </ul>
+
+      <div class="drawer-footer">
+        Kcomunitywhats &copy; 2026 - <a href="#" id="link-drawer-kovaz" style="color: var(--accent-color); text-decoration: none;">kovaz.fyi</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- VENTANA MODAL UNIVERSAL                    -->
+  <!-- ========================================== -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Título Modal</h3>
+        <button id="btn-modal-close" class="modal-close" title="Cerrar">✕</button>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <!-- El contenido se inyecta dinámicamente -->
+      </div>
+      <div id="modal-footer" class="modal-footer">
+        <!-- Botones de acción dinámicos -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- PANTALLA DE BLOQUEO TOTAL (EXPIRACIÓN)     -->
+  <!-- ========================================== -->
+  <div id="lock-screen-overlay" class="lock-screen-overlay">
+    <div class="lock-card">
+      <button id="btn-lock-close-preview" class="lock-preview-close" title="Cerrar vista previa">✕ Cerrar Vista Previa</button>
+      
+      <div class="lock-icon-container">
+        🔒
+      </div>
+      
+      <div class="lock-badge-security">🛡️ KoVaz Security Guard</div>
+      <h2 class="lock-title">Período de Prueba Finalizado</h2>
+      <p class="lock-subtitle">
+        Tu período de prueba gratuito de 7 días ha concluido. Para continuar gestionando tus cuentas de WhatsApp y envíos masivos sin interrupciones, ingresa tu clave de licencia o adquiere una nueva.
+      </p>
+
+      <button id="btn-lock-buy" class="btn-kovaz-store">
+        🛒 Adquirir Licencia en kovaz.fyi
+      </button>
+
+      <div class="lock-divider">
+        <span>O ingresa tu clave de activación</span>
+      </div>
+
+      <div class="form-group" style="text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label class="form-label" style="margin-bottom: 0;">ID de este Equipo (Hardware ID):</label>
+          <span style="font-size: 11px; color: var(--text-muted);">Proporciona este ID al administrador</span>
+        </div>
+        <div class="hwid-box" style="margin-top: 2px; margin-bottom: 12px;">
+          <span id="lock-hwid-text" class="hwid-value">Cargando...</span>
+          <button id="btn-lock-copy-hwid" class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;">Copiar ID</button>
+        </div>
+      </div>
+
+      <div class="lock-activation-form">
+        <div class="form-group">
+          <label class="form-label" for="lock-input-key">Clave de Licencia:</label>
+          <input type="text" id="lock-input-key" class="form-input code-input" placeholder="KCW-XXXX... / KCOM-XXXX..." autocomplete="off">
+        </div>
+        <button id="btn-lock-unlock" class="btn btn-primary" style="justify-content: center; width: 100%; padding: 10px 16px; font-size: 14px; font-weight: 700;">
+          🔓 Validar y Desbloquear Aplicación
+        </button>
+        <div id="lock-alert-msg" class="alert-message"></div>
+      </div>
+
+      <div class="lock-footer-support">
+        <span>¿Dudas o soporte técnico? Escríbenos a <a href="#" id="link-lock-support" style="color: var(--accent-color); text-decoration: none;">soporte@kovaz.fyi</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts modulares -->
+  <script src="js/settings.js"></script>
+  <script src="js/license-ui.js"></script>
+  <script src="js/bulk-sender.js"></script>
+  <script src="js/modals.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

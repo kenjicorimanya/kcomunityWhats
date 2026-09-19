@@ -1,0 +1,13 @@
+﻿{
+  "version": "1.0.1",
+  "releaseDate": "2026-09-19",
+  "title": "Kcomunitywhats v1.0.1 - Corrector Ortográfico y Mejoras",
+  "mandatory": false,
+  "changelog": [
+    "Corrector ortográfico activo con sugerencias y reemplazo al clic derecho.",
+    "Opción para añadir palabras personalizadas al diccionario del usuario.",
+    "Menú contextual con Cortar, Copiar, Pegar, Deshacer y Rehacer.",
+    "Notificaciones de actualización en tiempo real conectadas a GitHub."
+  ],
+  "downloadUrl": "https://github.com/kenjicorimanya/kcomunityWhats/releases/download/v1.0.1/Kcomunitywhats_Setup.exe"
+}

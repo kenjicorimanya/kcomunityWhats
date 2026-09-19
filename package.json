@@ -1,0 +1,60 @@
+{
+    "name":  "kcomunitywhats",
+    "version":  "1.0.2",
+    "description":  "Multi-instancia de WhatsApp con sesiones aisladas y control de licencias",
+    "main":  "main.js",
+    "scripts":  {
+                    "start":  "electron .",
+                    "keygen":  "node license-generator/generator.js",
+                    "dist":  "electron-builder --win"
+                },
+    "build":  {
+                  "appId":  "com.kovaz.kcomunitywhats",
+                  "productName":  "Kcomunitywhats",
+                  "directories":  {
+                                      "output":  "dist"
+                                  },
+                  "files":  [
+                                "main.js",
+                                "preload.js",
+                                "lib/**/*",
+                                "src/**/*",
+                                "assets/**/*",
+                                "!license-generator/**",
+                                "!license-generator/*",
+                                "!**/*.log",
+                                "!*.log",
+                                "!dist/**"
+                            ],
+                  "win":  {
+                              "target":  [
+                                             {
+                                                 "target":  "nsis",
+                                                 "arch":  [
+                                                              "x64"
+                                                          ]
+                                             }
+                                         ],
+                              "requestedExecutionLevel":  "asInvoker"
+                          },
+                  "nsis":  {
+                               "oneClick":  false,
+                               "allowToChangeInstallationDirectory":  true,
+                               "deleteAppDataOnUninstall":  false,
+                               "createDesktopShortcut":  true,
+                               "createStartMenuShortcut":  true,
+                               "shortcutName":  "Kcomunitywhats"
+                           }
+              },
+    "keywords":  [
+                     "whatsapp",
+                     "multi-account",
+                     "electron"
+                 ],
+    "author":  "Kovaz",
+    "license":  "Proprietary",
+    "devDependencies":  {
+                            "electron":  "^33.4.11",
+                            "electron-builder":  "^26.15.3"
+                        }
+}

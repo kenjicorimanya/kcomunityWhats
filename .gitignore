@@ -1,0 +1,8 @@
+node_modules/
+dist/
+PAQUETE_INSTALACION_CLIENTE/
+PAQUETE_INSTALACION_CLIENTE_V_ALTERNATIVA/
+*.log
+*.zip
+.github_token
+.env
